@@ -21,7 +21,7 @@ export default function Svg({ x, y, maxY, marginTop, dataX, dataY }: SvgProps) {
        .enter()
        .append("rect")
        .style("fill","steelblue" )
-       .attr("x",(d,i)=> x(dataX[i]) as number)
+       .attr("x",(_d,i)=> x(dataX[i]) as number)
        .attr("y",d => maxY - (y(d) - marginTop) > 0 ? y(d) : maxY + marginTop )
        .attr("width", x.bandwidth())
        .attr("height",d => Math.abs(maxY - (y(d) - marginTop)) );
