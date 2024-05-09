@@ -1,6 +1,6 @@
 import { max, min, scaleBand, scaleLinear, select } from 'd3'
 
-export const dataY = [-100, -40, 30, 86, 168, 281, 303, 365];
+export const dataY = [-100, 60, 30, 86, 168, 281, 303, 365];
 export const dataX = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
 export const unitY = "Height/m";
 export const minY = min(dataY) as number;
@@ -19,4 +19,5 @@ export const marginLeft = 30;
 export const marginRight = 30;
 //创建了两个比例尺
 export const x = scaleBand(xDomain, [marginLeft, width - marginRight]).padding(0.2);
-export const y = scaleLinear(yDomain, [marginTop + maxY - minY, marginTop]);
+export const y = scaleLinear(yDomain, [height - marginTop, marginTop]);
+export const scaleValue = ( height - marginTop - marginBottom ) / ( maxY - minY );
